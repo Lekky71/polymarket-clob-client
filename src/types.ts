@@ -36,7 +36,6 @@ export interface L2PolyHeader extends AxiosRequestHeaders {
     POLY_PASSPHRASE: string;
 }
 
-
 // Builder API key verification
 export interface L2WithBuilderHeader extends L2PolyHeader {
     POLY_BUILDER_API_KEY: string;
@@ -509,4 +508,40 @@ export interface BuilderTrade {
     err_msg?: string | null;
     createdAt: string | null;
     updatedAt: string | null;
+}
+
+// Blockchain Client Types
+export interface RedeemMarketPositionsParams {
+    ConditionID: string;
+    MarketId: string;
+}
+
+export interface RedeemMarketPositionsForSafeWalletParams {
+    ConditionID: string;
+    MarketId: string;
+    safeWalletAddress: string;
+}
+
+export interface ApproveHashOnSafeParams {
+    txHash: string;
+    safeWalletAddress: string;
+}
+
+export interface SafeTransactionHashParams {
+    safeAddress: string;
+    to: string;
+    value: number | bigint;
+    data: string;
+    operation: number;
+    safeTxGas: number | bigint;
+    baseGas: number | bigint;
+    gasPrice: number | bigint;
+    gasToken: string;
+    refundReceiver: string;
+    nonce: bigint;
+}
+
+export interface RedeemPositionsParams {
+    MarketID: string;
+    ConditionID: string;
 }
