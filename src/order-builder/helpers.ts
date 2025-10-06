@@ -21,7 +21,7 @@ import {
 } from "../types";
 import { decimalPlaces, roundDown, roundNormal, roundUp } from "../utilities";
 import { COLLATERAL_TOKEN_DECIMALS, getContractConfig } from "../config";
-import { TransactionReceipt } from "@ethersproject/abstract-provider/src.ts";
+import { TransactionReceipt } from "@ethersproject/abstract-provider";
 import { BlockchainClient } from "../blockchain/blockchain.client";
 
 export const ROUNDING_CONFIG: Record<TickSize, RoundConfig> = {
@@ -400,7 +400,6 @@ export const redeemMarketPositions = (
     chainId: Chain,
     signatureType: SignatureType,
     params: {
-        MarketID: string;
         ConditionID: string;
         funderWalletAddress?: string;
     },
@@ -408,7 +407,6 @@ export const redeemMarketPositions = (
     const blockchainClient = new BlockchainClient(eoaSigner, chainId);
     if (signatureType === SignatureType.EOA) {
         return blockchainClient.redeemMarketPositionsForEOA({
-            MarketId: params.MarketID,
             ConditionID: params.ConditionID,
         });
     }
@@ -417,7 +415,6 @@ export const redeemMarketPositions = (
     }
 
     return blockchainClient.redeemMarketPositionsForSafeWallet({
-        MarketId: params.MarketID,
         ConditionID: params.ConditionID,
         safeWalletAddress: params.funderWalletAddress,
     });

@@ -513,12 +513,10 @@ export interface BuilderTrade {
 // Blockchain Client Types
 export interface RedeemMarketPositionsParams {
     ConditionID: string;
-    MarketId: string;
 }
 
 export interface RedeemMarketPositionsForSafeWalletParams {
     ConditionID: string;
-    MarketId: string;
     safeWalletAddress: string;
 }
 
@@ -542,6 +540,5 @@ export interface SafeTransactionHashParams {
 }
 
 export interface RedeemPositionsParams {
-    MarketID: string;
     ConditionID: string;
 }

@@ -47,13 +47,11 @@ export async function redeemForEOA() {
 
     // Market and condition IDs for a resolved market
     // Replace these with actual values from a resolved market
-    const marketId = "0x123456..."; // Market ID from Polymarket
     const conditionId = "0xabcdef..."; // Condition ID (32-byte hash)
 
     try {
         console.log("Redeeming outcome tokens for EOA wallet...");
         const receipt = await clobClient.redeemPositions({
-            MarketID: marketId,
             ConditionID: conditionId,
         });
 
@@ -92,7 +90,6 @@ export async function redeemForProxy() {
 
     // Market and condition IDs for a resolved market
     // Replace these with actual values from a resolved market
-    const marketId = "60..."; // Market ID from Polymarket
     const conditionId = "0x9ba..."; // Condition ID (32-byte hash)
     const proxyWalletAddress = "0xB1..."; // Your Safe/Proxy wallet address
 
@@ -109,7 +106,6 @@ export async function redeemForProxy() {
     try {
         console.log("Redeeming outcome tokens for Proxy wallet...");
         const receipt = await clobClient.redeemPositions({
-            MarketID: marketId,
             ConditionID: conditionId,
         });
 

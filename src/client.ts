@@ -124,7 +124,7 @@ import {
     GET_FEE_RATE,
     GET_BUILDER_TRADES,
 } from "./endpoints";
-import { OrderBuilder } from "./order-builder/builder";
+import { OrderBuilder } from "./order-builder";
 import { END_CURSOR, INITIAL_CURSOR } from "./constants";
 import {
     calculateBuyMarketPrice,
@@ -168,7 +168,7 @@ export class ClobClient {
         geoBlockToken?: string,
         useServerTime?: boolean,
         builderConfig?: BuilderConfig,
-        getSigner?: () => Promise<Wallet | JsonRpcSigner> | (Wallet | JsonRpcSigner)
+        getSigner?: () => Promise<Wallet | JsonRpcSigner> | (Wallet | JsonRpcSigner),
     ) {
         this.host = host.endsWith("/") ? host.slice(0, -1) : host;
         this.chainId = chainId;
@@ -1201,7 +1201,6 @@ export class ClobClient {
             this.chainId,
             this.orderBuilder.signatureType as SignatureType,
             {
-                MarketID: params.MarketID,
                 ConditionID: params.ConditionID,
                 funderWalletAddress: this.orderBuilder.funderAddress,
             },

@@ -7,7 +7,7 @@ import {
     RedeemMarketPositionsParams,
     SafeTransactionHashParams,
 } from "../types";
-import { TransactionReceipt } from "@ethersproject/abstract-provider/src.ts";
+import { TransactionReceipt } from "@ethersproject/abstract-provider";
 import { CTF_ABI } from "./abi/ctf.abi";
 import { SAFE_ABI } from "./abi/safe.abi";
 import { AbiCoder } from "ethers/lib/utils";
