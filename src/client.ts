@@ -49,7 +49,7 @@ import {
     L2PolyHeader,
     L2HeaderArgs,
     BuilderTrade,
-    RedeemPositionsParams,
+    RedeemMarketPositionsParams,
 } from "./types";
 import { createL1Headers, createL2Headers, injectBuilderHeaders } from "./headers";
 import {
@@ -1193,7 +1193,7 @@ export class ClobClient {
      * @param params Market and condition details for redemption
      * @returns Transaction receipt
      */
-    public async redeemPositions(params: RedeemPositionsParams): Promise<any> {
+    public async redeemPositions(params: RedeemMarketPositionsParams): Promise<any> {
         this.canL1Auth();
 
         return redeemMarketPositions(

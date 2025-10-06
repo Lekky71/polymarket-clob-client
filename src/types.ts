@@ -538,7 +538,3 @@ export interface SafeTransactionHashParams {
     refundReceiver: string;
     nonce: bigint;
 }
-
-export interface RedeemPositionsParams {
-    ConditionID: string;
-}
