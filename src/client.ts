@@ -168,6 +168,7 @@ export class ClobClient {
         geoBlockToken?: string,
         useServerTime?: boolean,
         builderConfig?: BuilderConfig,
+        getSigner?: () => Promise<Wallet | JsonRpcSigner> | (Wallet | JsonRpcSigner)
     ) {
         this.host = host.endsWith("/") ? host.slice(0, -1) : host;
         this.chainId = chainId;
@@ -183,6 +184,7 @@ export class ClobClient {
             chainId,
             signatureType,
             funderAddress,
+            getSigner,
         );
         this.tickSizes = {};
         this.negRisk = {};

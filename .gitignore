@@ -11,6 +11,7 @@ dist/
 node_modules/
 typechain/
 scripts/
+.idea/
 .nyc_output/
 
 # files
@@ -24,5 +25,3 @@ yarn-error.log*
 .DS_Store
 packages/tracker/main
 package-lock.json
-
-.idea
